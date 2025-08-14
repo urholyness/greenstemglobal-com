@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenStemGlobal — Pioneering Sustainable Food Supply</title>
+  <meta name="description" content="Revolutionary EU food sourcing platform with blockchain-verified traceability, AI-powered analytics, and carbon-neutral operations." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="GreenStemGlobal — The Future of Food Supply Chain" />
+  <meta property="og:description" content="Complete transparency. Zero compromise. The most advanced food sourcing platform in Europe." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greenstemglobal.de/" />
+  <meta property="og:image" content="img/logo_1.png" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Alpine.js for interactivity -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              mint: '#34D399',
+              forest: '#059669',
+              emerald: '#10b981'
+            },
+            dark: {
+              bg: '#0a0a0a',
+              card: '#141414',
+              border: '#262626'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'shimmer': 'shimmer 3s linear infinite',
+            'gradient': 'gradient 8s ease infinite',
+            'morph': 'morph 8s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'fade-in': 'fadeIn 0.8s ease-out'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 20px rgba(14,165,233,0.5)' },
+              '100%': { boxShadow: '0 0 30px rgba(14,165,233,0.8), 0 0 60px rgba(52,211,153,0.4)' }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-1000px 0' },
+              '100%': { backgroundPosition: '1000px 0' }
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' }
+            },
+            morph: {
+              '0%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+              '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+              '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(100px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            }
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'gradient-mesh': 'url("data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100" height="100" fill="url(%23grid)" /%3E%3C/svg%3E")'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Custom styles */
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark .glassmorphism {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .gradient-border {
+      background: linear-gradient(90deg, #0ea5e9, #34d399, #0ea5e9);
+      background-size: 200% 100%;
+      animation: gradient 3s ease infinite;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #0ea5e9 0%, #34d399 50%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .particle-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(14,165,233,0.8) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    .morphing-blob {
+      position: absolute;
+      background: linear-gradient(135deg, rgba(14,165,233,0.3) 0%, rgba(52,211,153,0.3) 100%);
+      filter: blur(40px);
+      animation: morph 8s ease-in-out infinite;
+    }
+    
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      background-size: 1000px 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.1);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #0ea5e9, #34d399);
+      border-radius: 5px;
+    }
+    
+    /* Loading animation */
+    .loading-dots span {
+      animation: blink 1.4s infinite both;
+    }
+    
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
+    
+    /* Perspective card effect */
+    .perspective-card {
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    
+    .perspective-card:hover {
+      transform: rotateY(5deg) rotateX(-5deg);
+    }
+  </style>
+</head>
+<body x-data="{ darkMode: true, mobileMenu: false, currentLang: 'en', showChat: false }" 
+      :class="darkMode ? 'dark' : ''" 
+      class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-bg dark:to-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+  
+  <!-- Animated Background -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="particle-bg" id="particles"></div>
+    <div class="morphing-blob w-96 h-96 top-0 left-0"></div>
+    <div class="morphing-blob w-96 h-96 bottom-0 right-0" style="animation-delay: 4s;"></div>
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+  </div>
+  
+  <!-- Advanced Header -->
+  <header class="sticky top-0 z-50 glassmorphism border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative">
+            <div class="absolute inset-0 bg-brand-500 blur-xl opacity-50 group-hover:opacity-75 transition"></div>
+            <img src="img/logo_1.png" alt="GreenStemGlobal" class="relative h-10 w-auto" />
+          </div>
+          <span class="text-xl font-bold text-gradient hidden sm:block">GreenStemGlobal</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#features" class="relative group">
+            <span class="hover:text-brand-400 transition">Features</span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-mint group-hover:w-full transition-all"></span>
+          </a>
+          <a href="#products" class="relative group">
+            <span class="hover:text-brand-400 transition">Products</span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-mint group-hover:w-full transition-all"></span>
+          </a>
+          <a href="#technology" class="relative group">
+            <span class="hover:text-brand-400 transition">Technology</span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-mint group-hover:w-full transition-all"></span>
+          </a>
+          <a href="#sustainability" class="relative group">
+            <span class="hover:text-brand-400 transition">Sustainability</span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-mint group-hover:w-full transition-all"></span>
+          </a>
+          <a href="#contact" class="relative group">
+            <span class="hover:text-brand-400 transition">Contact</span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-400 to-brand-mint group-hover:w-full transition-all"></span>
+          </a>
+        </nav>
+        
+        <!-- Right Actions -->
+        <div class="flex items-center gap-4">
+          <!-- Language Selector -->
+          <select x-model="currentLang" class="px-3 py-1.5 rounded-lg glassmorphism text-sm cursor-pointer">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="fi">FI</option>
+          </select>
+          
+          <!-- Theme Toggle -->
+          <button @click="darkMode = !darkMode" class="p-2 rounded-lg glassmorphism hover:bg-white/10 transition">
+            <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </button>
+          
+          <!-- CTA Button -->
+          <a href="#contact" class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-mint text-white font-semibold hover:shadow-lg hover:scale-105 transition-all">
+            Get Started
+          </a>
+          
+          <!-- Mobile Menu Toggle -->
+          <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 rounded-lg glassmorphism">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenu" x-transition class="lg:hidden border-t border-white/10">
+      <nav class="px-4 py-4 space-y-2">
+        <a href="#features" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition">Features</a>
+        <a href="#products" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition">Products</a>
+        <a href="#technology" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition">Technology</a>
+        <a href="#sustainability" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition">Sustainability</a>
+        <a href="#contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section with Advanced Animation -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="space-y-8 animate-fade-in">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glassmorphism border border-brand-500/30">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+            </span>
+            <span class="text-sm font-semibold text-brand-400">Beta Launch Q3 2025</span>
+          </div>
+          
+          <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+            <span class="block">The Future of</span>
+            <span class="block text-gradient">Sustainable Food</span>
+            <span class="block">Supply Chain</span>
+          </h1>
+          
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-xl">
+            Revolutionary blockchain-verified traceability, AI-powered analytics, and carbon-neutral operations. 
+            Building tomorrow's food infrastructure today.
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <button class="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden">
+              <span class="absolute inset-0 bg-gradient-to-r from-brand-500 to-brand-mint transition-transform group-hover:scale-105"></span>
+              <span class="relative flex items-center gap-2">
+                Request Demo
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </span>
+            </button>
+            <button class="px-8 py-4 rounded-xl font-semibold glassmorphism hover:bg-white/10 transition">
+              Watch Video
+            </button>
+          </div>
+          
+          <!-- Live Stats -->
+          <div class="grid grid-cols-3 gap-4 pt-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gradient" data-counter="150">0</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Partner Farms</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gradient" data-counter="99.9">0</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">% Traceability</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-gradient" data-counter="24">0</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Countries</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Visual -->
+        <div class="relative lg:h-[600px] perspective-card">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-mint/20 blur-3xl"></div>
+          <div class="relative glassmorphism rounded-2xl p-8 h-full">
+            <!-- Interactive Supply Chain Visualization -->
+            <div class="relative h-full flex items-center justify-center">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-80 h-80 rounded-full border-2 border-brand-500/30 animate-pulse-slow"></div>
+                <div class="absolute w-64 h-64 rounded-full border-2 border-brand-mint/30 animate-pulse-slow" style="animation-delay: 1s;"></div>
+                <div class="absolute w-48 h-48 rounded-full border-2 border-brand-forest/30 animate-pulse-slow" style="animation-delay: 2s;"></div>
+              </div>
+              
+              <!-- Central Globe -->
+              <div class="relative z-10 w-32 h-32 rounded-full bg-gradient-to-br from-brand-500 to-brand-mint flex items-center justify-center animate-float shadow-2xl">
+                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              
+              <!-- Orbiting Element 1: Farm -->
+              <div class="absolute w-full h-full animate-spin" style="animation-duration: 20s;">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div class="relative group">
+                    <!-- Floating Info Badges -->
+                    <div class="absolute -top-14 left-1/2 transform -translate-x-1/2 flex gap-2 opacity-80">
+                      <span class="px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-xs whitespace-nowrap">🌱 Organic</span>
+                      <span class="px-2 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-xs whitespace-nowrap">☀️ Solar</span>
+                    </div>
+                    <!-- Main Element -->
+                    <div class="w-24 h-24 rounded-xl glassmorphism flex flex-col items-center justify-center p-2 border border-brand-500/30 hover:scale-110 transition-transform">
+                      <span class="text-3xl mb-1">🌾</span>
+                      <span class="text-[10px] font-semibold text-center leading-tight">2 Butterflies<br/>Farm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Orbiting Element 2: Cold Storage -->
+              <div class="absolute w-full h-full animate-spin" style="animation-duration: 30s; animation-direction: reverse;">
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+                  <div class="relative group">
+                    <!-- Floating Info Badges -->
+                    <div class="absolute -top-14 left-1/2 transform -translate-x-1/2 flex gap-2 opacity-80">
+                      <span class="px-2 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-xs whitespace-nowrap">❄️ -18°C</span>
+                      <span class="px-2 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-xs whitespace-nowrap">🔒 Secure</span>
+                    </div>
+                    <!-- Main Element -->
+                    <div class="w-24 h-24 rounded-xl glassmorphism flex flex-col items-center justify-center p-2 border border-blue-500/30 hover:scale-110 transition-transform">
+                      <div class="relative">
+                        <svg class="w-10 h-10 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v8H8V8zm2 2v4h4v-4h-4z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 text-lg">❄️</span>
+                      </div>
+                      <span class="text-[10px] font-semibold text-center mt-1">Cold Chain<br/>Storage</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Orbiting Element 3: Delivery Truck -->
+              <div class="absolute w-full h-full animate-spin" style="animation-duration: 25s;">
+                <div class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                  <div class="relative group">
+                    <!-- Floating Info Badges -->
+                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 space-y-1">
+                      <div class="flex gap-1 justify-center">
+                        <span class="px-2 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-xs whitespace-nowrap">🌡️ 4°C</span>
+                        <span class="px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-xs whitespace-nowrap">📍 287km</span>
+                      </div>
+                      <div class="flex gap-1 justify-center">
+                        <span class="px-2 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-xs whitespace-nowrap">⚖️ 2.4t</span>
+                        <span class="px-2 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-xs whitespace-nowrap">🌶️🥬🥭</span>
+                      </div>
+                    </div>
+                    <!-- Main Element -->
+                    <div class="w-24 h-24 rounded-xl glassmorphism flex flex-col items-center justify-center p-2 border border-orange-500/30 hover:scale-110 transition-transform">
+                      <div class="relative">
+                        <span class="text-3xl">🚚</span>
+                        <div class="absolute -bottom-1 left-0 right-0 bg-white/90 dark:bg-gray-800/90 rounded px-1">
+                          <span class="text-[8px] font-bold text-brand-500 dark:text-brand-400">GSG Logik</span>
+                        </div>
+                      </div>
+                      <span class="text-[10px] font-semibold text-center mt-2">Express<br/>Delivery</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section with Cards -->
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+          <span class="text-gradient">Revolutionary Features</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Cutting-edge technology meets sustainable agriculture to create the most transparent and efficient food supply chain in Europe.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature Card 1 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-500 to-brand-mint flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Blockchain Verification</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Every transaction and movement is recorded on an immutable blockchain, ensuring complete transparency and trust.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feature Card 2 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-mint to-brand-forest flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">AI-Powered Analytics</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Machine learning algorithms predict demand, optimize routing, and identify quality issues before they impact delivery.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feature Card 3 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-brand-forest to-brand-emerald flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Carbon Neutral Operations</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Committed to achieving net-zero emissions across our entire supply chain by 2026 through innovative solutions.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feature Card 4 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Real-Time Tracking</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Monitor your shipments in real-time with IoT sensors tracking temperature, humidity, and location 24/7.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feature Card 5 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Smart Contracts</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Automated payments and quality guarantees executed through smart contracts, reducing friction and disputes.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Feature Card 6 -->
+        <div class="group hover-lift">
+          <div class="h-full glassmorphism rounded-2xl p-8 border border-white/10 hover:border-brand-500/30 transition-all">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Fair Trade Network</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Direct partnerships with certified farms ensuring fair wages and sustainable agricultural practices.
+            </p>
+            <div class="flex items-center gap-2 text-brand-500 font-semibold">
+              <span>Learn more</span>
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section with Enhanced Visuals -->
+  <section id="products" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+          <span class="text-gradient">Premium Product Range</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Carefully selected, premium quality produce with complete farm-to-table traceability.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Product Card 1 -->
+        <div class="group relative hover-lift">
+          <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative glassmorphism rounded-2xl overflow-hidden border border-white/10">
+            <div class="aspect-square overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?q=80&w=800&auto=format&fit=crop" 
+                   alt="Premium Chilies" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Premium Chilies</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Fresh & dried varieties from certified organic farms</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-brand-500">View Details</span>
+                <svg class="w-5 h-5 text-brand-500 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Card 2 -->
+        <div class="group relative hover-lift">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative glassmorphism rounded-2xl overflow-hidden border border-white/10">
+            <div class="aspect-square overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1566842820537-65e967d6bdc5?q=80&w=800&auto=format&fit=crop" 
+                   alt="French Beans" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">French Beans</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Air-freighted daily for maximum freshness</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-brand-500">View Details</span>
+                <svg class="w-5 h-5 text-brand-500 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Card 3 -->
+        <div class="group relative hover-lift">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative glassmorphism rounded-2xl overflow-hidden border border-white/10">
+            <div class="aspect-square overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1603906474955-1f850632b2c1?q=80&w=800&auto=format&fit=crop" 
+                   alt="Passion Fruit" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Passion Fruit</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Grade A quality with consistent year-round supply</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-brand-500">View Details</span>
+                <svg class="w-5 h-5 text-brand-500 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Card 4 -->
+        <div class="group relative hover-lift">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative glassmorphism rounded-2xl overflow-hidden border border-white/10">
+            <div class="aspect-square overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=800&auto=format&fit=crop" 
+                   alt="Premium Mangoes" 
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Premium Mangoes</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Multiple varieties, perfectly ripened for export</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-brand-500">View Details</span>
+                <svg class="w-5 h-5 text-brand-500 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <button class="px-8 py-4 rounded-xl font-semibold glassmorphism hover:bg-white/10 transition border border-brand-500/30">
+          View Full Catalog
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Technology Dashboard Preview -->
+  <section id="technology" class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+          <span class="text-gradient">Intelligent Dashboard</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Powerful analytics and real-time insights at your fingertips. Make data-driven decisions with confidence.
+        </p>
+      </div>
+      
+      <!-- Dashboard Mock -->
+      <div class="glassmorphism rounded-2xl border border-white/10 p-8 shimmer overflow-hidden">
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- Left Stats -->
+          <div class="space-y-6">
+            <div class="glassmorphism rounded-xl p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold">Live Shipments</h3>
+                <span class="text-2xl">🚚</span>
+              </div>
+              <div class="text-3xl font-bold text-gradient mb-2">247</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Active deliveries</div>
+              <div class="mt-4 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-brand-500 to-brand-mint" style="width: 73%;"></div>
+              </div>
+            </div>
+            
+            <div class="glassmorphism rounded-xl p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold">Quality Score</h3>
+                <span class="text-2xl">⭐</span>
+              </div>
+              <div class="text-3xl font-bold text-gradient mb-2">98.7%</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Average rating</div>
+              <div class="mt-4 flex gap-1">
+                <div class="h-8 w-full bg-brand-500 rounded"></div>
+                <div class="h-8 w-full bg-brand-500 rounded"></div>
+                <div class="h-8 w-full bg-brand-500 rounded"></div>
+                <div class="h-8 w-full bg-brand-400 rounded"></div>
+                <div class="h-8 w-full bg-gray-300 dark:bg-gray-700 rounded"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Center Chart -->
+          <div class="glassmorphism rounded-xl p-6">
+            <h3 class="font-semibold mb-4">Supply Chain Overview</h3>
+            <canvas id="supplyChart" class="w-full h-64"></canvas>
+          </div>
+          
+          <!-- Right Activity -->
+          <div class="glassmorphism rounded-xl p-6">
+            <h3 class="font-semibold mb-4">Recent Activity</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div>
+                <div>
+                  <p class="text-sm font-semibold">Shipment #KE-2847 Delivered</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">2 minutes ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
+                <div>
+                  <p class="text-sm font-semibold">Quality Check Passed</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">15 minutes ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full bg-yellow-500 mt-2"></div>
+                <div>
+                  <p class="text-sm font-semibold">New Order Received</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">1 hour ago</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div>
+                <div>
+                  <p class="text-sm font-semibold">Temperature Alert Resolved</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">2 hours ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sustainability Section -->
+  <section id="sustainability" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+            <span class="text-gradient">Sustainability First</span>
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            Our commitment to environmental responsibility drives every decision we make. From carbon-neutral operations to fair trade partnerships, we're building a sustainable future for food supply.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Carbon Neutral by 2026</h3>
+                <p class="text-gray-600 dark:text-gray-300">Complete offset of all emissions across our supply chain through verified carbon credits and renewable energy.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Water Conservation</h3>
+                <p class="text-gray-600 dark:text-gray-300">Partner farms use 40% less water through precision irrigation and drought-resistant crop varieties.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Zero Waste Initiative</h3>
+                <p class="text-gray-600 dark:text-gray-300">100% biodegradable packaging and comprehensive recycling programs at all facilities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-mint/20 blur-3xl"></div>
+          <div class="relative glassmorphism rounded-2xl p-8">
+            <canvas id="sustainabilityChart" class="w-full h-96"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+          <span class="text-gradient">Ready to Transform Your Supply Chain?</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300">
+          Join the revolution in sustainable food sourcing. Get early access to our platform.
+        </p>
+      </div>
+      
+      <form class="glassmorphism rounded-2xl p-8 border border-white/10">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Company Name *</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-brand-500 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Your Name *</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-brand-500 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Business Email *</label>
+            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-brand-500 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+            <input type="tel" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-brand-500 focus:outline-none transition" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold mb-2">Products of Interest</label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand-500" />
+                <span>Chilies</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand-500" />
+                <span>French Beans</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand-500" />
+                <span>Passion Fruit</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand-500" />
+                <span>Mangoes</span>
+              </label>
+            </div>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold mb-2">Message</label>
+            <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-brand-500 focus:outline-none transition"></textarea>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-between">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            * Required fields. We'll respond within 24 hours.
+          </p>
+          <button type="submit" class="px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-mint hover:shadow-lg hover:scale-105 transition-all">
+            Request Early Access
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="img/logo_1.png" alt="GreenStemGlobal" class="h-8 w-auto" />
+            <span class="text-xl font-bold text-gradient">GreenStemGlobal</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Pioneering the future of sustainable food supply chains across Europe and beyond.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li><a href="#" class="hover:text-brand-500 transition">About Us</a></li>
+            <li><a href="#" class="hover:text-brand-500 transition">How It Works</a></li>
+            <li><a href="#" class="hover:text-brand-500 transition">Partner Farms</a></li>
+            <li><a href="#" class="hover:text-brand-500 transition">Certifications</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Contact</h3>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>hello@greenstemglobal.de</li>
+            <li>+49 (0) 40 1234 5678</li>
+            <li>Hamburg, Germany</li>
+            <li>Nairobi, Kenya</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Follow Us</h3>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-lg glassmorphism flex items-center justify-center hover:bg-white/10 transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-lg glassmorphism flex items-center justify-center hover:bg-white/10 transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-lg glassmorphism flex items-center justify-center hover:bg-white/10 transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-600 dark:text-gray-400">
+        <p>© 2025 GreenStemGlobal. All rights reserved. | Privacy Policy | Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Live Chat Widget -->
+  <div x-show="showChat" x-transition class="fixed bottom-24 right-4 z-50">
+    <div class="glassmorphism rounded-2xl border border-white/10 p-6 w-80">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-semibold">Live Support</h3>
+        <button @click="showChat = false" class="text-gray-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="space-y-4 mb-4 h-64 overflow-y-auto">
+        <div class="flex gap-2">
+          <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm">AI</div>
+          <div class="flex-1 bg-white/10 rounded-lg p-3 text-sm">
+            Hello! How can I help you with GreenStemGlobal today?
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <input type="text" placeholder="Type your message..." class="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-brand-500" />
+        <button class="px-4 py-2 rounded-lg bg-brand-500 text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Chat Toggle Button -->
+  <button @click="showChat = !showChat" class="fixed bottom-4 right-4 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-brand-500 to-brand-mint text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <svg x-show="!showChat" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+    </svg>
+    <svg x-show="showChat" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  
+  <script>
+    // Initialize particles
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 6 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDuration = Math.random() * 20 + 10 + 's';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        container.appendChild(particle);
+      }
+    }
+    createParticles();
+    
+    // Counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-counter]');
+      counters.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-counter'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target % 1 === 0 ? target : target.toFixed(1);
+          }
+        };
+        
+        // Start animation when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCounter();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(counter);
+      });
+    }
+    animateCounters();
+    
+    // Initialize Charts
+    window.addEventListener('load', () => {
+      // Supply Chain Chart
+      const supplyCtx = document.getElementById('supplyChart');
+      if (supplyCtx) {
+        new Chart(supplyCtx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+              label: 'Shipments',
+              data: [65, 78, 90, 110, 125, 142],
+              borderColor: 'rgb(14, 165, 233)',
+              backgroundColor: 'rgba(14, 165, 233, 0.1)',
+              tension: 0.4
+            }, {
+              label: 'Quality Score',
+              data: [92, 94, 93, 96, 98, 99],
+              borderColor: 'rgb(52, 211, 153)',
+              backgroundColor: 'rgba(52, 211, 153, 0.1)',
+              tension: 0.4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              },
+              x: {
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              }
+            }
+          }
+        });
+      }
+      
+      // Sustainability Chart
+      const sustainCtx = document.getElementById('sustainabilityChart');
+      if (sustainCtx) {
+        new Chart(sustainCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Renewable Energy', 'Carbon Offsets', 'Water Saved', 'Waste Reduced'],
+            datasets: [{
+              data: [45, 25, 20, 10],
+              backgroundColor: [
+                'rgba(14, 165, 233, 0.8)',
+                'rgba(52, 211, 153, 0.8)',
+                'rgba(16, 185, 129, 0.8)',
+                'rgba(5, 150, 105, 0.8)'
+              ],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  padding: 20,
+                  color: 'rgba(255, 255, 255, 0.8)'
+                }
+              }
+            }
+          }
+        });
+      }
+    });
+    
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Animate sections on scroll
+    gsap.utils.toArray('section').forEach(section => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
+  </script>
+</body>
+</html>

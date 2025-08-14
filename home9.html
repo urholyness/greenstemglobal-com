@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenStemGlobal — EU Food Sourcing Redefined</title>
+  <meta name="description" content="Revolutionary EU food sourcing with complete A-Z traceability and sustainability at its core. Reliable, transparent, and locally-driven solutions." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="GreenStemGlobal — EU Food Sourcing Redefined" />
+  <meta property="og:description" content="Complete A-Z traceability. Sustainability embedded. The most transparent food sourcing solution in Europe." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greenstemglobal.de/" />
+  <meta property="og:image" content="logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#0EA5E9',
+              dark: '#0369A1',
+              mint: '#34D399'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 20px rgba(14,165,233,0.5)' },
+              '100%': { boxShadow: '0 0 30px rgba(14,165,233,0.8), 0 0 40px rgba(52,211,153,0.4)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bg-grid {
+      background-image: radial-gradient(rgba(14,165,233,0.15) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .dashboard-preview {
+      background: linear-gradient(135deg, rgba(14,165,233,0.1) 0%, rgba(52,211,153,0.1) 100%);
+      backdrop-filter: blur(10px);
+    }
+    .tech-grid {
+      background-image: linear-gradient(rgba(14,165,233,0.2) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(14,165,233,0.2) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .countdown-digit {
+      background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(52,211,153,0.2) 100%);
+      border: 1px solid rgba(14,165,233,0.3);
+      font-variant-numeric: tabular-nums;
+    }
+    .logo-container img {
+      max-height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-white">
+  <!-- Language Selector -->
+  <div class="fixed top-20 right-4 z-50">
+    <select id="langSelect" class="px-3 py-1.5 rounded-lg bg-neutral-900/80 backdrop-blur border border-white/10 text-sm">
+      <option value="en">EN</option>
+      <option value="de">DE</option>
+      <option value="fi">FI</option>
+    </select>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-neutral-950/70 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-3 logo-container">
+          <img src="img/logo_1.png" alt="GreenStemGlobal" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+          <span style="display:none" class="text-xl font-bold bg-gradient-to-r from-brand to-brand-mint bg-clip-text text-transparent">GreenStemGlobal</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#why" class="hover:text-brand transition" data-lang="nav-why">Why?</a>
+          <a href="#products" class="hover:text-brand transition" data-lang="nav-products">Products</a>
+          <a href="#esg" class="hover:text-brand transition" data-lang="nav-esg">ESG</a>
+          <a href="#contact" class="hover:text-brand transition" data-lang="nav-contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute -top-24 -left-24 h-[500px] w-[500px] bg-brand/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-24 -right-24 h-[500px] w-[500px] bg-brand-mint/20 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 items-center gap-12">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            <span data-lang="hero-title">A new standard for EU food sourcing with</span> 
+            <span class="text-brand" data-lang="hero-highlight">complete A-Z traceability</span>
+          </h1>
+          <p class="mt-6 text-lg text-white/80 max-w-xl" data-lang="hero-subtitle">
+            Revolutionary transparency and sustainability embedded at its core. Dependable, reliable, and locally-driven solutions like no other service available in Europe.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-brand text-neutral-950 font-semibold hover:bg-brand/90 shadow-lg transition" data-lang="hero-cta">Request Access</a>
+          </div>
+          <div class="mt-8 flex items-center gap-6 text-sm text-white/60">
+            <span class="inline-flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span data-lang="hero-status">Real-time tracking</span>
+            </span>
+            <span data-lang="hero-compliance">EU • MRL Compliant</span>
+            <span data-lang="hero-cert">GlobalGAP+</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?q=80&w=1600&auto=format&fit=crop" alt="Modern agriculture supply chain" class="h-full w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-neutral-900/90 backdrop-blur rounded-2xl border border-white/10 p-4 shadow-xl">
+            <p class="text-xs text-brand font-semibold uppercase tracking-wider" data-lang="hero-badge-title">Farm 5.0</p>
+            <p class="text-sm mt-1" data-lang="hero-badge-desc">Standardized, Mechanized Production</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold" data-lang="why-title">Why GreenStemGlobal?</h2>
+        <p class="mt-4 text-lg text-white/70" data-lang="why-subtitle">
+          Built in Germany for European buyers. Complete transparency, radical traceability, designed to scale across continents.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" data-lang="why-feature1-title">Complete A-Z Traceability</h3>
+          <p class="text-white/70" data-lang="why-feature1-desc">From seed to delivery - track every step with QR codes, blockchain verification, and real-time updates.</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" data-lang="why-feature2-title">EU Compliance Guaranteed</h3>
+          <p class="text-white/70" data-lang="why-feature2-desc">MRL compliant, GlobalGAP certified, with additional certifications expanding quarterly.</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" data-lang="why-feature3-title">Multi-Origin Network</h3>
+          <p class="text-white/70" data-lang="why-feature3-desc">Starting with Kenya, expanding to Egypt, Morocco, South Africa and other partners quarterly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold" data-lang="products-title">Current Product Range</h2>
+        <p class="mt-4 text-lg text-white/70" data-lang="products-subtitle">
+          Premium quality produce with complete traceability. More products added quarterly.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-6 text-center hover:border-brand/30 transition">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🌶️</span>
+          </div>
+          <h3 class="font-semibold mb-2" data-lang="product-chili">Chilies</h3>
+          <p class="text-sm text-white/60 mt-1" data-lang="product-chili-desc">Fresh & Dried • Multiple varieties</p>
+        </div>
+        
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-6 text-center hover:border-brand/30 transition">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🫘</span>
+          </div>
+          <h3 class="font-semibold mb-2" data-lang="product-beans">French Beans</h3>
+          <p class="text-sm text-white/60 mt-1" data-lang="product-beans-desc">Premium grade • Air freight</p>
+        </div>
+        
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-6 text-center hover:border-brand/30 transition">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🥭</span>
+          </div>
+          <h3 class="font-semibold mb-2" data-lang="product-passion">Passion Fruit</h3>
+          <p class="text-sm text-white/60 mt-1" data-lang="product-passion-desc">Grade A • Consistent supply</p>
+        </div>
+        
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-6 text-center hover:border-brand/30 transition">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🥭</span>
+          </div>
+          <h3 class="font-semibold mb-2" data-lang="product-mango">Mango</h3>
+          <p class="text-sm text-white/60 mt-1" data-lang="product-mango-desc">Export grade • Multiple varieties</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-sm text-white/50" data-lang="products-more">More products added quarterly</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESG -->
+  <section id="esg" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold" data-lang="esg-title">Sustainability at Our Core</h2>
+        <p class="mt-4 text-lg text-white/70" data-lang="esg-subtitle">
+          Committed to achieving carbon neutrality for all products from seed to client.
+        </p>
+        
+        <div class="mt-12 grid sm:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold" data-lang="esg-carbon">Carbon Neutral Goal</h3>
+            <p class="text-sm text-white/60 mt-2" data-lang="esg-carbon-desc">2026 target for all operations</p>
+          </div>
+          
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold" data-lang="esg-fair">Fair Trade</h3>
+            <p class="text-sm text-white/60 mt-2" data-lang="esg-fair-desc">Direct partnerships with farmers</p>
+          </div>
+          
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold" data-lang="esg-cert">Certifications</h3>
+            <p class="text-sm text-white/60 mt-2" data-lang="esg-cert-desc">GlobalGAP+ expanding quarterly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold" data-lang="contact-title">Get Early Access</h2>
+      <p class="mt-4 text-white/70" data-lang="contact-subtitle">
+        Request product sheets and pilot shipment access. We'll contact you before shipping.
+      </p>
+      
+      <form class="mt-8 max-w-md mx-auto" action="https://formspree.io/f/mayvlzzz" method="POST">
+        <input type="hidden" name="_subject" value="GreenStemGlobal Early Access Request" />
+        <div class="space-y-4">
+          <input 
+            required 
+            name="company" 
+            placeholder="Company Name" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+            data-lang-placeholder="contact-company"
+          />
+          <input 
+            required 
+            name="name" 
+            placeholder="Your Name" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+            data-lang-placeholder="contact-name"
+          />
+          <input 
+            required 
+            type="email" 
+            name="email" 
+            placeholder="Business Email" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+            data-lang-placeholder="contact-email"
+          />
+          <select 
+            name="products" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+          >
+            <option value="" data-lang="contact-select">Select products of interest</option>
+            <option value="all" data-lang="contact-all">All products</option>
+            <option value="chilies">Chilies</option>
+            <option value="beans">French Beans</option>
+            <option value="passion">Passion Fruit</option>
+            <option value="mango">Mango</option>
+          </select>
+          <button 
+            class="w-full px-5 py-3 rounded-xl bg-brand text-neutral-950 font-semibold hover:bg-brand/90 shadow-lg transition" 
+            type="submit"
+            data-lang="contact-submit"
+          >
+            Request Access
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-neutral-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center">
+        <p class="text-white/60 text-sm max-w-2xl mx-auto" data-lang="footer-tagline">
+          Transparency from every harvest to EU, sustainable by design, trusted links to finest produce
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Language switching functionality
+    const translations = {
+      en: {
+        'nav-why': 'Why?',
+        'nav-products': 'Products',
+        'nav-esg': 'ESG',
+        'nav-contact': 'Contact',
+        'hero-title': 'A new standard for EU food sourcing with',
+        'hero-highlight': 'complete A-Z traceability',
+        'hero-subtitle': 'Revolutionary transparency and sustainability embedded at its core. Dependable, reliable, and locally-driven solutions like no other service available in Europe.',
+        'hero-cta': 'Request Access',
+        'hero-status': 'Real-time tracking',
+        'hero-compliance': 'EU • MRL Compliant',
+        'hero-cert': 'GlobalGAP+',
+        'hero-badge-title': 'Farm 5.0',
+        'hero-badge-desc': 'Standardized, Mechanized Production',
+        'why-title': 'Why GreenStemGlobal?',
+        'why-subtitle': 'Built in Germany for European buyers. Complete transparency, radical traceability, designed to scale across continents.',
+        'why-feature1-title': 'Complete A-Z Traceability',
+        'why-feature1-desc': 'From seed to delivery - track every step with QR codes, blockchain verification, and real-time updates.',
+        'why-feature2-title': 'EU Compliance Guaranteed',
+        'why-feature2-desc': 'MRL compliant, GlobalGAP certified, with additional certifications expanding quarterly.',
+        'why-feature3-title': 'Multi-Origin Network',
+        'why-feature3-desc': 'Starting with Kenya, expanding to Egypt, Morocco, South Africa and other partners quarterly.',
+        'products-title': 'Current Product Range',
+        'products-subtitle': 'Premium quality produce with complete traceability. More products added quarterly.',
+        'product-chili': 'Chilies',
+        'product-chili-desc': 'Fresh & Dried • Multiple varieties',
+        'product-beans': 'French Beans',
+        'product-beans-desc': 'Premium grade • Air freight',
+        'product-passion': 'Passion Fruit',
+        'product-passion-desc': 'Grade A • Consistent supply',
+        'product-mango': 'Mango',
+        'product-mango-desc': 'Export grade • Multiple varieties',
+        'products-more': 'More products added quarterly',
+        'esg-title': 'Sustainability at Our Core',
+        'esg-subtitle': 'Committed to achieving carbon neutrality for all products from seed to client.',
+        'esg-carbon': 'Carbon Neutral Goal',
+        'esg-carbon-desc': '2026 target for all operations',
+        'esg-fair': 'Fair Trade',
+        'esg-fair-desc': 'Direct partnerships with farmers',
+        'esg-cert': 'Certifications',
+        'esg-cert-desc': 'GlobalGAP+ expanding quarterly',
+        'contact-title': 'Get Early Access',
+        'contact-subtitle': 'Request product sheets and pilot shipment access. We\'ll contact you before shipping.',
+        'contact-company': 'Company Name',
+        'contact-name': 'Your Name',
+        'contact-email': 'Business Email',
+        'contact-select': 'Select products of interest',
+        'contact-all': 'All products',
+        'contact-submit': 'Request Access',
+        'footer-tagline': 'Transparency from every harvest to EU, sustainable by design, trusted links to finest produce'
+      }
+    };
+
+    // Language switching
+    let currentLang = 'en';
+    
+    function updateLanguage(lang) {
+      currentLang = lang;
+      
+      // Update text content
+      document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update placeholders
+      document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-lang-placeholder');
+        if (translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
+      });
+    }
+
+    // Add click handlers for language switches
+    document.getElementById('langSelect').addEventListener('change', function(e) {
+      updateLanguage(e.target.value);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

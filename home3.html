@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenStemGlobal — Traceable Produce from Farm to Germany</title>
+  <meta name="description" content="GreenStemGlobal connects German buyers to transparent, fair-trade produce from Africa with harvest-to-delivery visibility and EU-compliant quality." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="GreenStemGlobal — Traceable Produce from Farm to Germany" />
+  <meta property="og:description" content="Harvest-to-delivery visibility. EU-compliant quality. A new standard for fair, transparent food sourcing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greenstem.global/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1600&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#0EA5E9', // sky-500
+              dark: '#0369A1',     // sky-700
+              mint: '#34D399'      // emerald-400
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2, 132, 199, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Subtle gradient grid background */
+    .bg-grid {
+      background-image: radial-gradient(rgba(14,165,233,0.15) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-white">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-neutral-950/70 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand/20 ring-1 ring-brand/30">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 14c6 0 8-8 16-8" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 18c6 0 8-8 16-8" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="font-semibold tracking-tight">GreenStemGlobal</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#why" class="hover:text-brand">Why</a>
+          <a href="#how" class="hover:text-brand">How it works</a>
+          <a href="#products" class="hover:text-brand">Products</a>
+          <a href="#esg" class="hover:text-brand">ESG</a>
+          <a href="#contact" class="hover:text-brand">Contact</a>
+          <a href="#waitlist" class="px-4 py-2 rounded-xl bg-brand text-neutral-950 font-medium hover:bg-brand/90 shadow-soft">Join waitlist</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute -top-24 -left-24 h-[500px] w-[500px] bg-brand/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-24 -right-24 h-[500px] w-[500px] bg-brand.mint/20 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 items-center gap-10">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            A new standard for <span class="text-brand">traceable</span> food sourcing.
+          </h1>
+          <p class="mt-6 text-lg text-white/80 max-w-xl">
+            GreenStemGlobal connects German buyers to fair, transparent produce from Africa—with <span class="font-semibold">harvest-to-delivery visibility</span>, EU/German MRL compliance, and predictive demand planning.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#waitlist" class="px-5 py-3 rounded-xl bg-brand text-neutral-950 font-semibold hover:bg-brand/90 shadow-soft">Request access</a>
+            <a href="#how" class="px-5 py-3 rounded-xl border border-white/10 hover:border-brand/50">See how it works</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-xs text-white/60">
+            <span class="inline-flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Real-time shipment status
+            </span>
+            <span>QR-based traceability</span>
+            <span>MRL: EU • Germany • Edeka</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop" alt="Fresh produce crates" class="h-full w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-neutral-900/80 backdrop-blur rounded-2xl border border-white/10 p-4 shadow-soft">
+            <p class="text-xs text-white/70">Live Dashboard</p>
+            <p class="font-semibold">Harvest → Packhouse → Transit → Delivery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="col-span-1">
+          <h2 class="text-2xl md:text-3xl font-bold">Why GreenStemGlobal</h2>
+          <p class="mt-3 text-white/70">Built in Germany for German buyers. Fully compliant, radically transparent, and designed to scale.</p>
+        </div>
+        <div class="md:col-span-2 grid sm:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <h3 class="font-semibold">Harvest-to-delivery visibility</h3>
+            <p class="mt-2 text-sm text-white/70">Track each lot with QR codes: field, farmer, packhouse, lab results, cold-chain data, and arrival ETA.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <h3 class="font-semibold">EU/German/Edeka MRL compliance</h3>
+            <p class="mt-2 text-sm text-white/70">Products meet EU and German residue limits; stricter private-label specs on request.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <h3 class="font-semibold">Predictive market matching</h3>
+            <p class="mt-2 text-sm text-white/70">AI forecasts align production windows with demand to cut waste and reduce stockouts.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+            <h3 class="font-semibold">Fair & sustainable by design</h3>
+            <p class="mt-2 text-sm text-white/70">Fair pricing for farmers, women & youth inclusion, and a carbon program launching Q1 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">How it works</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+          <p class="text-xs text-white/60">01</p>
+          <h3 class="mt-1 font-semibold">Source & verify</h3>
+          <p class="mt-2 text-sm text-white/70">Clustered farms, audited inputs, field protocols, and pre-shipment quality checks.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+          <p class="text-xs text-white/60">02</p>
+          <h3 class="mt-1 font-semibold">Pack & move</h3>
+          <p class="mt-2 text-sm text-white/70">Buyer-spec packing, EU docs, air/sea freight options, cold chain integrity.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+          <p class="text-xs text-white/60">03</p>
+          <h3 class="mt-1 font-semibold">Track & deliver</h3>
+          <p class="mt-2 text-sm text-white/70">Live status, lab reports, and delivery confirmation in one dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Priority products</h2>
+          <p class="mt-3 text-white/70 max-w-2xl">French/Green beans, chilies (fresh & dried), passion fruit, mangoes (export only), and selected herbs — all with buyer-spec packing and documentation.</p>
+        </div>
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 hover:border-brand/50">Request a spec sheet →</a>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="group p-5 rounded-2xl bg-neutral-900 border border-white/10 hover:border-brand/40 transition">
+          <div class="aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=1600&auto=format&fit=crop" alt="Green beans" class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <h3 class="mt-4 font-semibold">French/Green Beans</h3>
+          <p class="mt-1 text-sm text-white/70">Air freight options • EU/German/Edeka MRL • Buyer-spec packing.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="group p-5 rounded-2xl bg-neutral-900 border border-white/10 hover:border-brand/40 transition">
+          <div class="aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1592928302581-afcdbf4b73d2?q=80&w=1600&auto=format&fit=crop" alt="Red chilies" class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <h3 class="mt-4 font-semibold">Chilies (Fresh & Dried)</h3>
+          <p class="mt-1 text-sm text-white/70">Varietals on request • Graded & sorted • Heat-level profiles included.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="group p-5 rounded-2xl bg-neutral-900 border border-white/10 hover:border-brand/40 transition">
+          <div class="aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1600&auto=format&fit=crop" alt="Passion fruit" class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <h3 class="mt-4 font-semibold">Passion Fruit</h3>
+          <p class="mt-1 text-sm text-white/70">Traceable lots • EU docs • Consistent grading.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="group p-5 rounded-2xl bg-neutral-900 border border-white/10 hover:border-brand/40 transition">
+          <div class="aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?q=80&w=1600&auto=format&fit=crop" alt="Mango" class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <h3 class="mt-4 font-semibold">Mango (Export Only)</h3>
+          <p class="mt-1 text-sm text-white/70">Fresh export • No processing stage yet • Buyer-spec packing.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="group p-5 rounded-2xl bg-neutral-900 border border-white/10 hover:border-brand/40 transition">
+          <div class="aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop" alt="Herbs" class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <h3 class="mt-4 font-semibold">Selected Herbs</h3>
+          <p class="mt-1 text-sm text-white/70">Coriander, basil, mint, more • Packed to spec • Cold chain maintained.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESG / IMPACT -->
+  <section id="esg" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">ESG built-in</h2>
+          <ul class="mt-6 space-y-3 text-white/80">
+            <li>• Fair pricing & reliable offtake for farmers</li>
+            <li>• Women & youth participation targets</li>
+            <li>• Climate-smart agronomy & low-water irrigation</li>
+            <li>• <span class="font-semibold">Carbon initiative launching Q1 2026</span> (trees, soil, logistics)</li>
+            <li>• Recyclable materials & minimal waste</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-3xl bg-neutral-900 border border-white/10">
+          <h3 class="font-semibold">The GreenStem Dashboard</h3>
+          <p class="mt-2 text-sm text-white/70">One login for buyers, farmers, and partners: shipment status, quality reports, origin data, and forward-demand insights.</p>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+            <div class="rounded-xl bg-neutral-800 p-3 border border-white/10">Lot traceability</div>
+            <div class="rounded-xl bg-neutral-800 p-3 border border-white/10">Lab & MRL reports</div>
+            <div class="rounded-xl bg-neutral-800 p-3 border border-white/10">Transit tracking</div>
+            <div class="rounded-xl bg-neutral-800 p-3 border border-white/10">Demand signals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST / CONTACT -->
+  <section id="waitlist" class="border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold">Be an early buyer</h2>
+      <p class="mt-3 text-white/70">Get product sheets, pricing options, and first access to pilot shipments.</p>
+      <form class="mt-8 grid sm:grid-cols-3 gap-3" action="https://formspree.io/f/mayvlzzz" method="POST">
+        <input type="hidden" name="_subject" value="GreenStemGlobal Waitlist" />
+        <input required name="name" placeholder="Name" class="sm:col-span-1 px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60" />
+        <input required type="email" name="email" placeholder="Work email" class="sm:col-span-1 px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60" />
+        <button class="sm:col-span-1 px-5 py-3 rounded-xl bg-brand text-neutral-950 font-semibold hover:bg-brand/90 shadow-soft" type="submit">Request access</button>
+      </form>
+      <p class="mt-3 text-xs text-white/50">By submitting, you agree to be contacted about GreenStemGlobal. We respect your inbox.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div>
+          <p class="font-semibold">GreenStemGlobal</p>
+          <p class="text-sm text-white/60 mt-1">Berlin • Nairobi</p>
+        </div>
+        <div class="text-sm text-white/70">
+          <p><a class="hover:text-brand" href="mailto:hello@greenstem.global">hello@greenstem.global</a></p>
+          <p class="mt-1">VAT/EORI available upon request</p>
+        </div>
+        <div class="text-sm text-white/60 md:text-right">
+          <p>© <span id="year"></span> GreenStemGlobal. All rights reserved.</p>
+          <p class="mt-1">Built for transparency in food.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

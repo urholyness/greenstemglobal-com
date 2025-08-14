@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenStemGlobal - Exclusive Preview | Revolutionary EU Food Sourcing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': '#10b981',
+                        'brand-mint': '#34d399'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid {
+            background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .countdown-digit {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .lang-switch span.active {
+            color: #10b981;
+        }
+        .lang-switch span:hover {
+            color: #10b981;
+            cursor: pointer;
+        }
+        .teaser-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .exclusive-badge {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .coming-soon {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-white">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-neutral-950/70 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-8">
+          <!-- Logo -->
+          <a href="#top" class="flex items-center gap-2 logo-container">
+            <img src="img/logo_1.png" alt="GreenStemGlobal" onerror="this.onerror=null; this.src='logo.png';" />
+            <span class="text-lg font-semibold">GreenStemGlobal</span>
+          </a>
+          
+          <!-- Exclusive Badge -->
+          <div class="hidden md:flex items-center gap-2">
+            <span class="exclusive-badge px-3 py-1 rounded-full text-xs font-bold text-neutral-950">EXCLUSIVE PREVIEW</span>
+          </div>
+          
+          <!-- Countdown -->
+          <div class="hidden md:flex items-center gap-3 text-xs">
+            <div class="flex flex-col items-end">
+              <span class="text-brand font-bold text-[10px]">BETA</span>
+              <span class="text-white/40 text-[8px]">Launch</span>
+            </div>
+            <div class="flex items-center gap-1 font-mono text-brand/80">
+              <span id="months" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="days" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="hours" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="minutes" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="seconds" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+            </div>
+          </div>
+        </div>
+        
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#preview" class="hover:text-brand transition">Preview</a>
+          <a href="#vision" class="hover:text-brand transition">Vision</a>
+          <a href="#access" class="hover:text-brand transition">Get Access</a>
+          <div class="lang-switch flex items-center gap-1 text-xs text-white/60 ml-4">
+            <span class="active" data-lang-switch="en">EN</span>
+            <span class="text-white/20">|</span>
+            <span data-lang-switch="de">DE</span>
+            <span class="text-white/20">|</span>
+            <span data-lang-switch="fi">FI</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute -top-24 -left-24 h-[500px] w-[500px] bg-brand/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-24 -right-24 h-[500px] w-[500px] bg-brand-mint/20 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Exclusive Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/20 border border-brand/30 text-brand text-sm font-semibold mb-6">
+          <span class="animate-pulse">🔒</span>
+          <span>EXCLUSIVE PREVIEW - LIMITED ACCESS</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          <span>The Future of EU Food Sourcing is</span> 
+          <span class="text-brand">Almost Here</span>
+        </h1>
+        <p class="mt-6 text-xl text-white/80 max-w-3xl mx-auto">
+          This is your exclusive preview of the revolutionary platform that will transform agricultural supply chains across Europe. 
+          <span class="text-brand font-semibold">What you see here is just the beginning.</span>
+        </p>
+        
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="#access" class="px-8 py-4 rounded-xl bg-brand text-neutral-950 font-bold text-lg hover:bg-brand/90 shadow-lg transition transform hover:scale-105">
+            Request Exclusive Access
+          </a>
+          <a href="#preview" class="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold hover:border-brand/50 hover:text-brand transition">
+            See What's Coming
+          </a>
+        </div>
+        
+        <div class="mt-8 flex items-center justify-center gap-6 text-sm text-white/60">
+          <span class="inline-flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Hamburg & Frankfurt Based</span>
+          </span>
+          <span>EU • MRL Compliant</span>
+          <span>GlobalGAP+ Ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW SECTION -->
+  <section id="preview" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">What You're Seeing is Just 15%</h2>
+        <p class="text-white/70 max-w-2xl mx-auto">
+          This preview shows the foundation. The real platform will include AI-powered insights, real-time blockchain tracking, 
+          and predictive analytics that don't exist anywhere else in Europe.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <!-- Coming Soon Feature 1 -->
+        <div class="coming-soon rounded-2xl p-8 text-center relative overflow-hidden">
+          <div class="absolute top-4 right-4">
+            <span class="px-3 py-1 bg-brand/20 text-brand text-xs font-semibold rounded-full">COMING SOON</span>
+          </div>
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl">🤖</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">AI Supply Chain Assistant</h3>
+          <p class="text-white/70 mb-6">Predictive pricing, demand forecasting, and intelligent logistics optimization.</p>
+          <div class="teaser-blur bg-neutral-900/50 rounded-lg p-4">
+            <p class="text-xs text-white/50">Preview: Basic interface shown above</p>
+          </div>
+        </div>
+
+        <!-- Coming Soon Feature 2 -->
+        <div class="coming-soon rounded-2xl p-8 text-center relative overflow-hidden">
+          <div class="absolute top-4 right-4">
+            <span class="px-3 py-1 bg-brand/20 text-brand text-xs font-semibold rounded-full">COMING SOON</span>
+          </div>
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl">📊</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Real-Time Analytics</h3>
+          <p class="text-white/70 mb-6">Live tracking, carbon footprint monitoring, and compliance verification.</p>
+          <div class="teaser-blur bg-neutral-900/50 rounded-lg p-4">
+            <p class="text-xs text-white/50">Preview: Static visualization shown above</p>
+          </div>
+        </div>
+
+        <!-- Coming Soon Feature 3 -->
+        <div class="coming-soon rounded-2xl p-8 text-center relative overflow-hidden">
+          <div class="absolute top-4 right-4">
+            <span class="px-3 py-1 bg-brand/20 text-brand text-xs font-semibold rounded-full">COMING SOON</span>
+          </div>
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl">🔗</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Blockchain Integration</h3>
+          <p class="text-white/70 mb-6">Immutable records, smart contracts, and automated compliance.</p>
+          <div class="teaser-blur bg-neutral-900/50 rounded-lg p-4">
+            <p class="text-xs text-white/50">Preview: Conceptual framework only</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <p class="text-lg text-white/60 mb-4">The full platform will revolutionize how Europe sources agricultural products</p>
+        <a href="#access" class="inline-flex items-center gap-2 px-6 py-3 bg-brand/20 text-brand font-semibold rounded-lg hover:bg-brand/30 transition">
+          <span>Get Early Access</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION SECTION -->
+  <section id="vision" class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Why This Will Change Everything</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-brand text-xl">🌍</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-2">Complete Transparency</h3>
+                <p class="text-white/70">From seed to EU delivery - every step tracked, verified, and optimized.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-brand text-xl">⚡</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-2">AI-Powered Intelligence</h3>
+                <p class="text-white/70">Predictive analytics that reduce costs and improve quality across the entire supply chain.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-brand text-xl">🏗️</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-2">Built in Germany</h3>
+                <p class="text-white/70">Hamburg & Frankfurt based, designed for European standards and compliance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="aspect-square rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?q=80&w=1600&auto=format&fit=crop" alt="Future of agriculture" class="h-full w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-neutral-900/90 backdrop-blur rounded-2xl border border-white/10 p-4 shadow-xl">
+            <p class="text-xs text-brand font-semibold uppercase tracking-wider">VISION 2026</p>
+            <p class="text-sm mt-1">AI-Driven Supply Chain Revolution</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS SECTION -->
+  <section id="access" class="border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Exclusive Early Access</h2>
+        <p class="text-white/70 text-lg mb-6">
+          Be among the first to experience the future of agricultural supply chains. 
+          <span class="text-brand font-semibold">Free access for qualified partners.</span>
+        </p>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/20 border border-brand/30 text-brand text-sm font-semibold">
+          <span>🔒</span>
+          <span>LIMITED SPOTS AVAILABLE</span>
+        </div>
+      </div>
+      
+      <form class="max-w-2xl mx-auto" action="https://formspree.io/f/mayvlzzz" method="POST">
+        <input type="hidden" name="_subject" value="GreenStemGlobal Exclusive Access Request" />
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <input 
+            required 
+            name="company" 
+            placeholder="Company Name" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+          />
+          <input 
+            required 
+            name="name" 
+            placeholder="Your Name" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+          />
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <input 
+            required 
+            type="email" 
+            name="email" 
+            placeholder="Business Email" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+          />
+          <select 
+            name="industry" 
+            class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition"
+          >
+            <option value="">Select your industry</option>
+            <option value="retail">Retail & Supermarkets</option>
+            <option value="foodservice">Food Service & Restaurants</option>
+            <option value="processing">Food Processing</option>
+            <option value="wholesale">Wholesale & Distribution</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <textarea 
+          name="message" 
+          placeholder="Tell us about your supply chain challenges and what you're looking to achieve..."
+          rows="4"
+          class="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 outline-none focus:border-brand/60 transition mb-6"
+        ></textarea>
+        <button 
+          class="w-full px-8 py-4 rounded-xl bg-brand text-neutral-950 font-bold text-lg hover:bg-brand/90 shadow-lg transition transform hover:scale-105"
+        >
+          Request Exclusive Access
+        </button>
+      </form>
+      
+      <div class="mt-8 text-center">
+        <p class="text-sm text-white/50 mb-4">What happens next?</p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-white/60">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-brand rounded-full"></span>
+            <span>We'll review your application</span>
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-brand rounded-full"></span>
+            <span>Schedule a personalized demo</span>
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-brand rounded-full"></span>
+            <span>Grant early platform access</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-neutral-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center">
+        <p class="text-white/60 text-sm max-w-2xl mx-auto mb-6">
+          This is just the beginning. The full GreenStemGlobal platform will launch in 2026, 
+          revolutionizing how Europe sources agricultural products with unprecedented transparency and AI intelligence.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-white/40">
+          <span>Hamburg & Frankfurt Based</span>
+          <span>•</span>
+          <span>EU Compliant</span>
+          <span>•</span>
+          <span>AI-Powered</span>
+          <span>•</span>
+          <span>Blockchain Verified</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown to December 1st, 2025
+    function updateCountdown() {
+      const targetDate = new Date('December 1, 2025 00:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('months').textContent = months.toString().padStart(2, '0');
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      }
+    }
+
+    // Language switching
+    let currentLang = 'en';
+    
+    function updateLanguage(lang) {
+      currentLang = lang;
+      
+      // Update active state
+      document.querySelectorAll('[data-lang-switch]').forEach(el => {
+        el.classList.remove('active');
+        if (el.getAttribute('data-lang-switch') === lang) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    // Add click handlers for language switches
+    document.querySelectorAll('[data-lang-switch]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        updateLanguage(e.target.getAttribute('data-lang-switch'));
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form submission enhancement
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const button = this.querySelector('button[type="submit"]');
+      button.innerHTML = '<span class="inline-flex items-center gap-2"><span class="animate-spin">⏳</span> Processing...</span>';
+      button.disabled = true;
+    });
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

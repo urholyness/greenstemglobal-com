@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Services - GreenStemGlobal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': '#10b981',
+                        'brand-mint': '#34d399'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid {
+            background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .countdown-digit {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .lang-switch span.active {
+            color: #10b981;
+        }
+        .lang-switch span:hover {
+            color: #10b981;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-white">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-neutral-950/70 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-8">
+          <!-- Logo -->
+          <a href="home7.html" class="flex items-center gap-2 logo-container">
+            <!-- Use img/logo_1.png for dark background -->
+            <img src="img/logo_1.png" alt="GreenStemGlobal" onerror="this.onerror=null; this.src='logo.png';" />
+            <!-- Fallback to img/logo-light.png for light background scenarios -->
+            <!-- <img src="img/logo-light.png" alt="GreenStemGlobal" /> -->
+            <span class="text-lg font-semibold">GreenStemGlobal</span>
+          </a>
+          
+          <!-- Countdown -->
+          <div class="hidden md:flex items-center gap-3 text-xs">
+            <div class="flex flex-col items-end">
+              <span class="text-brand font-bold text-[10px]">BETA</span>
+              <span class="text-white/40 text-[8px]">Launch</span>
+            </div>
+            <div class="flex items-center gap-1 font-mono text-brand/80">
+              <span id="months" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="days" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="hours" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="minutes" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+              <span class="text-white/20">:</span>
+              <span id="seconds" class="countdown-digit px-1.5 py-0.5 rounded">00</span>
+            </div>
+          </div>
+        </div>
+        
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="home7.html#why" class="hover:text-brand transition">Why?</a>
+          <a href="home7.html#products" class="hover:text-brand transition">Products</a>
+          <a href="home7.html#esg" class="hover:text-brand transition">ESG</a>
+          <a href="home7.html#contact" class="hover:text-brand transition">Contact</a>
+          <a href="future-services-page.html" class="text-brand font-semibold">Future Services</a>
+          <div class="lang-switch flex items-center gap-1 text-xs text-white/60 ml-4">
+            <span class="active" data-lang-switch="en">EN</span>
+            <span class="text-white/20">|</span>
+            <span data-lang-switch="de">DE</span>
+            <span class="text-white/20">|</span>
+            <span data-lang-switch="fi">FI</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute -top-24 -left-24 h-[500px] w-[500px] bg-brand/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-24 -right-24 h-[500px] w-[500px] bg-brand-mint/20 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          <span class="text-brand">Future Services</span>
+        </h1>
+        <p class="mt-6 text-xl text-white/80 max-w-3xl mx-auto">
+          Revolutionary transparency and sustainability embedded at its core. Dependable, reliable, and locally-driven solutions like no other service available in Europe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE SERVICES -->
+  <section class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Deep Data Insights -->
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-8 hover:border-brand/30 transition-all duration-300">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Deep Data Insights</h3>
+          <p class="text-white/70 mb-6">AI-powered pricing analysis, climate impact assessment, and predictive market trends for informed decision-making.</p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li>• AI pricing algorithms</li>
+            <li>• Climate analysis</li>
+            <li>• Market predictions</li>
+          </ul>
+        </div>
+
+        <!-- Production on Demand -->
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-8 hover:border-brand/30 transition-all duration-300">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Production on Demand</h3>
+          <p class="text-white/70 mb-6">Custom farming solutions with agreed-upon prices, ensuring supply meets your specific requirements and timeline.</p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li>• Custom farming</li>
+            <li>• Agreed pricing</li>
+            <li>• Flexible timelines</li>
+          </ul>
+        </div>
+
+        <!-- Financial Products -->
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-8 hover:border-brand/30 transition-all duration-300">
+          <div class="w-16 h-16 bg-brand/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Financial Products</h3>
+          <p class="text-white/70 mb-6">Price guarantees, supply insurance, and financial instruments to protect your investment and ensure stability.</p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li>• Price guarantees</li>
+            <li>• Supply insurance</li>
+            <li>• Risk management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI INTERACTIVE DEMO -->
+  <section class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">AI-Powered Supply Chain Assistant</h2>
+        <p class="text-white/70">Experience the future of agricultural supply chain management</p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-neutral-900/50 border border-white/10 rounded-2xl p-8">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-brand/20 rounded-xl flex items-center justify-center">
+              <span class="text-2xl">🤖</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">GreenStem AI Assistant</h3>
+              <p class="text-white/60 text-sm">Ask me anything about supply chain optimization</p>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <input type="text" id="ai-input" placeholder="Ask about pricing, logistics, or sustainability..." 
+                     class="flex-1 bg-neutral-800 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-brand/50">
+              <button onclick="askAI()" class="px-6 py-3 bg-brand text-neutral-950 font-semibold rounded-lg hover:bg-brand/90 transition">
+                Ask AI
+              </button>
+            </div>
+            
+            <div id="ai-response" class="hidden bg-neutral-800/50 border border-white/10 rounded-lg p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-brand/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span class="text-brand text-sm">AI</span>
+                </div>
+                <div id="ai-response-text" class="text-white/80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-neutral-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center">
+        <p class="text-white/60 text-sm max-w-2xl mx-auto">
+          Transparency from every harvest to EU, sustainable by design, trusted links to finest produce
+        </p>
+        <div class="mt-6">
+          <a href="home7.html" class="text-brand hover:text-brand/80 transition">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown to December 1st, 2025
+    function updateCountdown() {
+      const targetDate = new Date('December 1, 2025 00:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('months').textContent = months.toString().padStart(2, '0');
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      }
+    }
+
+    // AI Assistant functionality
+    function askAI() {
+      const input = document.getElementById('ai-input').value.trim();
+      if (!input) return;
+
+      const responseDiv = document.getElementById('ai-response');
+      const responseText = document.getElementById('ai-response-text');
+      
+      // Show loading state
+      responseDiv.classList.remove('hidden');
+      responseText.innerHTML = '<span class="text-brand">Thinking...</span>';
+
+      // Simulate AI response with predefined knowledge base
+      setTimeout(() => {
+        const response = generateAIResponse(input);
+        responseText.innerHTML = response;
+      }, 1000 + Math.random() * 2000); // Random delay for realism
+    }
+
+    function generateAIResponse(query) {
+      const lowerQuery = query.toLowerCase();
+      
+      // Knowledge base for supply chain questions
+      const responses = {
+        'pricing': 'Based on current market analysis, our AI predicts mango prices will remain stable at €2.80-3.20/kg through Q2 2025. Factors include stable demand and favorable weather conditions in key growing regions.',
+        'logistics': 'Our optimized supply chain reduces transit time by 23% through predictive routing. Current delivery windows: Farm to EU within 72-96 hours with real-time temperature monitoring.',
+        'sustainability': 'Our carbon footprint tracking shows 34% reduction compared to traditional supply chains. Each shipment includes detailed ESG metrics and carbon offset calculations.',
+        'quality': 'Quality assurance is maintained through IoT sensors monitoring temperature, humidity, and shock during transit. MRL compliance is verified at multiple checkpoints.',
+        'cost': 'Total cost optimization through our platform reduces expenses by 18-25% compared to traditional sourcing, including logistics, quality assurance, and administrative overhead.'
+      };
+
+      // Find best matching response
+      for (const [key, response] of Object.entries(responses)) {
+        if (lowerQuery.includes(key)) {
+          return response;
+        }
+      }
+
+      // Default response
+      return 'I can help you with pricing analysis, logistics optimization, sustainability metrics, quality assurance, and cost optimization. Please ask a specific question about these areas.';
+    }
+
+    // Add Enter key support for AI input
+    document.getElementById('ai-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        askAI();
+      }
+    });
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
