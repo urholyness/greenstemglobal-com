@@ -203,13 +203,16 @@
   mobileMenu: false, 
   currentLang: 'en', 
   showChat: false,
+  activeModal: null,
+  showModal(modalId) { this.activeModal = modalId; },
+  closeModal() { this.activeModal = null; },
   translations: {
     en: {
-      hero_title: 'A new standard for EU food sourcing with',
-      hero_subtitle: 'complete A-Z traceability',
-      hero_desc: 'Direct from premium farms to your business. Complete transparency. Zero compromise.',
-      cta_source: 'Source Premium Produce',
-      cta_contact: 'Contact Sales',
+      hero_title: 'From Nairobi farms to Hamburg ports',
+      hero_subtitle: 'in complete transparency',
+      hero_desc: 'Every shipment tracked. Every farm verified. Every quality standard guaranteed. Direct sourcing that eliminates blind spots.',
+      cta_source: 'Get Product Samples',
+      cta_contact: 'See Live Shipments',
       features_title: 'Supply Chain Excellence',
       products: 'Products',
       about: 'About',
@@ -217,11 +220,11 @@
       solutions: 'Solutions'
     },
     de: {
-      hero_title: 'Ein neuer Standard für EU-Lebensmittelbeschaffung mit',
-      hero_subtitle: 'vollständiger A-Z-Rückverfolgbarkeit',
-      hero_desc: 'Direkt von Premium-Farmen zu Ihrem Unternehmen. Vollständige Transparenz. Keine Kompromisse.',
-      cta_source: 'Premium-Produkte beziehen',
-      cta_contact: 'Vertrieb kontaktieren',
+      hero_title: 'Von Nairobi-Farmen bis Hamburg-Häfen',
+      hero_subtitle: 'in vollständiger Transparenz',
+      hero_desc: 'Jede Sendung verfolgt. Jede Farm verifiziert. Jeder Qualitätsstandard garantiert. Direktbeschaffung ohne tote Winkel.',
+      cta_source: 'Produktproben erhalten',
+      cta_contact: 'Live-Sendungen ansehen',
       features_title: 'Lieferketten-Exzellenz',
       products: 'Produkte',
       about: 'Über uns',
@@ -229,11 +232,11 @@
       solutions: 'Lösungen'
     },
     fi: {
-      hero_title: 'Uusi standardi EU:n elintarvikehankinnoille',
-      hero_subtitle: 'täydellisellä A-Z jäljitettävyydellä',
-      hero_desc: 'Suoraan premium-tiloilta yrityksellesi. Täydellinen läpinäkyvyys. Ei kompromisseja.',
-      cta_source: 'Hanki Premium-tuotteita',
-      cta_contact: 'Ota yhteyttä myyntiin',
+      hero_title: 'Nairobin tiloilta Hampurin satamiin',
+      hero_subtitle: 'täydellisessä läpinäkyvyydessä',
+      hero_desc: 'Jokainen lähetys seurattu. Jokainen tila varmennettu. Jokainen laatustandardi taattu. Suora hankinta ilman sokeita kohtia.',
+      cta_source: 'Hanki tuotenäytteitä',
+      cta_contact: 'Katso live-lähetyksiä',
       features_title: 'Toimitusketjun huippuosaaminen',
       products: 'Tuotteet',
       about: 'Tietoa meistä',
@@ -259,7 +262,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="#" class="flex items-center group">
-          <img src="img/our_logo.png" alt="GreenStemGlobal" class="h-12 w-auto" />
+          <img src="img/our_logo.png" alt="GreenStemGlobal" class="h-14 w-auto sm:h-16" />
         </a>
         
         <!-- Desktop Navigation -->
@@ -300,7 +303,7 @@
           
           <!-- CTA Button -->
           <a href="#contact" class="hidden sm:block px-4 py-2 rounded-xl bg-brand text-neutral-950 font-semibold hover:bg-brand/90 shadow-lg transition min-h-[44px] flex items-center justify-center">
-            Request Access
+            Get Product Samples
           </a>
           
           <!-- Mobile Menu Toggle -->
@@ -329,9 +332,9 @@
   <!-- Hero Section with Advanced Animation -->
   <section class="relative py-12 md:py-16 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
         <!-- Left Content -->
-        <div class="space-y-8 animate-fade-in">
+        <div class="lg:col-span-3 space-y-8 animate-fade-in">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glassmorphism border border-brand-500/30" x-data="countdown()">
             <span class="relative flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
@@ -349,36 +352,80 @@
             Direct from premium farms to your business. Complete transparency. Zero compromise.
           </p>
           
-          <!-- New Capabilities Badge -->
+          <!-- Interactive Service Features -->
           <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 mt-8">
-            <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-brand/20 to-brand-mint/20 border border-brand/30 min-h-[44px] justify-center">
-              <span class="text-sm sm:text-base font-semibold text-brand-400">Spot Market</span>
-            </div>
-            <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 min-h-[44px] justify-center">
-              <span class="text-sm sm:text-base font-semibold text-yellow-400">Future Contracts</span>
-            </div>
-            <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 min-h-[44px] justify-center">
-              <span class="text-sm sm:text-base font-semibold text-purple-400">Value-Added Processing</span>
-            </div>
+            <button @click="showModal('tracking')" class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-brand/20 to-brand-mint/20 border border-brand/30 hover:border-brand/50 min-h-[44px] justify-center transition-all transform hover:scale-105">
+              <svg class="w-4 h-4 text-brand-400 group-hover:text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <span class="text-sm sm:text-base font-semibold text-brand-400 group-hover:text-brand-300">Direct Sourcing</span>
+              <svg class="w-3 h-3 text-brand-400/60 group-hover:text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </button>
+            <button @click="showModal('quality')" class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 hover:border-green-500/50 min-h-[44px] justify-center transition-all transform hover:scale-105">
+              <svg class="w-4 h-4 text-green-400 group-hover:text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm sm:text-base font-semibold text-green-400 group-hover:text-green-300">Premium Quality</span>
+              <svg class="w-3 h-3 text-green-400/60 group-hover:text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </button>
+            <button @click="showModal('delivery')" class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 hover:border-blue-500/50 min-h-[44px] justify-center transition-all transform hover:scale-105">
+              <svg class="w-4 h-4 text-blue-400 group-hover:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm sm:text-base font-semibold text-blue-400 group-hover:text-blue-300">Reliable Supply</span>
+              <svg class="w-3 h-3 text-blue-400/60 group-hover:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </button>
           </div>
           
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col sm:flex-row gap-4">
             <button class="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden">
               <span class="absolute inset-0 bg-brand transition-transform group-hover:scale-105"></span>
               <span class="relative flex items-center gap-2">
-                Request Access
+                Get Product Samples
                 <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </span>
             </button>
-            <div class="flex items-center gap-6 text-sm text-white/60">
+            <button @click="showModal('live-demo')" class="group relative px-8 py-4 rounded-xl font-semibold text-white border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all">
+              <span class="relative flex items-center gap-2">
+                <svg class="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-7 4h12l-1 1H7l-1-1z"></path>
+                </svg>
+                Watch Live Demo
+                <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          
+          <div class="flex items-center gap-6 text-sm text-white/60 mt-6">
               <span class="inline-flex items-center gap-2">
                 <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>Real-time tracking</span>
               </span>
               <span>EU • MRL Compliant</span>
               <span>GlobalGAP+</span>
+            </div>
+          </div>
+          
+          <!-- Social Proof -->
+          <div class="mt-8 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/10 border border-white/10">
+            <div class="flex items-center justify-center gap-3 text-sm text-white/80">
+              <div class="flex -space-x-2">
+                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-white">D</div>
+                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-white">M</div>
+                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-white">F</div>
+                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-white">+</div>
+              </div>
+              <span>Trusted by 15+ forward-thinking EU importers in private beta</span>
             </div>
           </div>
           
@@ -400,7 +447,7 @@
         </div>
         
         <!-- Right Visual - Supply Chain Cards -->
-        <div class="relative">
+        <div class="lg:col-span-2 relative">
           <!-- Mobile: Vertical Stack -->
           <div class="lg:hidden space-y-4" x-data="supplyChainRotator()">
             <!-- Mock Data Disclaimer -->
@@ -413,10 +460,13 @@
               <h4 class="text-sm font-bold text-brand-400 uppercase tracking-wide text-center mb-3">Farms*</h4>
               <div class="overflow-hidden rounded-xl">
                 <template x-for="(farm, index) in farms.slice(farmIndex, farmIndex + 1)" :key="farm.name">
-                  <div class="glassmorphism rounded-xl p-4 border border-green-500/40">
+                  <button @click="showModal('farm-details')" class="w-full glassmorphism rounded-xl p-4 border border-green-500/40 hover:border-green-400/60 transition-all transform hover:scale-105">
                     <div class="flex items-center gap-3 mb-3">
                       <span class="text-2xl">🌾</span>
                       <span class="font-bold" x-text="farm.name"></span>
+                      <svg class="w-4 h-4 text-green-400/60 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                      </svg>
                     </div>
                     <div class="grid grid-cols-2 gap-2 text-sm text-white/80">
                       <div class="flex items-center gap-2">
@@ -436,7 +486,7 @@
                         <span x-text="farm.distance"></span>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 </template>
               </div>
             </div>
@@ -1794,5 +1844,232 @@
       }
     }
   </script>
+  
+  <!-- Service Detail Modals -->
+  <div x-show="activeModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="display: none;">
+    <!-- Background Overlay -->
+    <div @click="closeModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    
+    <!-- Farm-to-Port Tracking Modal -->
+    <div x-show="activeModal === 'tracking'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" class="relative bg-neutral-900 rounded-2xl border border-white/20 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-gradient-to-br from-brand/20 to-brand-mint/20 border border-brand/30">
+              <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Direct Sourcing Network</h3>
+              <p class="text-brand-400">Connecting you directly to verified Kenya farms</p>
+            </div>
+          </div>
+          <button @click="closeModal()" class="p-2 rounded-lg hover:bg-white/10 transition">
+            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">Farm Partnerships</h4>
+              <p class="text-sm text-white/70">Direct relationships with 150+ verified farms</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">Quality Checks</h4>
+              <p class="text-sm text-white/70">Multiple inspection points from farm to port</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">Documentation</h4>
+              <p class="text-sm text-white/70">Complete paperwork and compliance records</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">Regular Updates</h4>
+              <p class="text-sm text-white/70">Weekly shipment and quality status reports</p>
+            </div>
+          </div>
+          
+          <div class="p-6 rounded-xl bg-gradient-to-br from-brand/10 to-brand-mint/10 border border-brand/20">
+            <h4 class="text-lg font-semibold text-white mb-2">Enterprise Benefits</h4>
+            <ul class="space-y-2 text-sm text-white/80">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Streamlined compliance documentation
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Direct farm-to-port relationships
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Regular quality updates and reports
+              </li>
+            </ul>
+          </div>
+          
+          <div class="flex gap-3">
+            <button class="flex-1 px-6 py-3 bg-brand hover:bg-brand/90 text-neutral-950 font-semibold rounded-xl transition">
+              Request Information
+            </button>
+            <button class="px-6 py-3 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-xl transition">
+              View Process
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quality Verified Modal -->
+    <div x-show="activeModal === 'quality'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" class="relative bg-neutral-900 rounded-2xl border border-white/20 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30">
+              <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Premium Quality Standards</h3>
+              <p class="text-green-400">EU compliance and premium grade selections</p>
+            </div>
+          </div>
+          <button @click="closeModal()" class="p-2 rounded-lg hover:bg-white/10 transition">
+            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">MRL Testing</h4>
+              <p class="text-sm text-white/70">EU Maximum Residue Level compliance</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">MRL Compliance</h4>
+              <p class="text-sm text-white/70">EU Maximum Residue Limits verification</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">GlobalGAP+</h4>
+              <p class="text-sm text-white/70">Enhanced Good Agricultural Practices</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="font-semibold text-white mb-2">Farm Audits</h4>
+              <p class="text-sm text-white/70">Regular on-site quality inspections</p>
+            </div>
+          </div>
+          
+          <div class="p-6 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+            <h4 class="text-lg font-semibold text-white mb-2">Certification Standards</h4>
+            <div class="grid sm:grid-cols-3 gap-4 text-sm text-white/80">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-400">ISO 22000</div>
+                <div>Food Safety Management</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-400">BRC Global</div>
+                <div>Standard for Food Safety</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-400">HACCP</div>
+                <div>Hazard Analysis Critical Control</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-3">
+            <button class="flex-1 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition">
+              Quality Standards
+            </button>
+            <button class="px-6 py-3 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-xl transition">
+              Farm Profiles
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- On-Time Delivery Modal -->
+    <div x-show="activeModal === 'delivery'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" class="relative bg-neutral-900 rounded-2xl border border-white/20 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white">Reliable Supply Chain</h3>
+              <p class="text-blue-400">Consistent delivery schedules and supply planning</p>
+            </div>
+          </div>
+          <button @click="closeModal()" class="p-2 rounded-lg hover:bg-white/10 transition">
+            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="grid sm:grid-cols-3 gap-4 text-center">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-3xl font-bold text-blue-400 mb-2">150+</div>
+              <h4 class="font-semibold text-white mb-1">Partner Farms</h4>
+              <p class="text-xs text-white/70">Verified suppliers</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-3xl font-bold text-blue-400 mb-2">24</div>
+              <h4 class="font-semibold text-white mb-1">Countries</h4>
+              <p class="text-xs text-white/70">Market reach</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+              <h4 class="font-semibold text-white mb-1">Monitoring</h4>
+              <p class="text-xs text-white/70">Real-time updates</p>
+            </div>
+          </div>
+          
+          <div class="p-6 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+            <h4 class="text-lg font-semibold text-white mb-3">Service Level Agreements</h4>
+            <div class="space-y-3 text-sm text-white/80">
+              <div class="flex justify-between items-center">
+                <span>Nairobi → Hamburg</span>
+                <span class="font-semibold text-blue-400">5-7 business days</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Mombasa → Rotterdam</span>
+                <span class="font-semibold text-blue-400">12-14 business days</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span>Premium Express</span>
+                <span class="font-semibold text-blue-400">3-4 business days</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-3">
+            <button class="flex-1 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition">
+              Supply Planning
+            </button>
+            <button class="px-6 py-3 border border-white/20 hover:bg-white/5 text-white font-semibold rounded-xl transition">
+              Logistics Info
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
